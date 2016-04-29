@@ -1,0 +1,35 @@
+{
+  "name": "random-quotes",
+  "version": "1.0.0",
+  "description": "Display random quotes",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/richarddewit/random-quotes.git"
+  },
+  "keywords": [
+    "random",
+    "quotes"
+  ],
+  "author": "Richard de Wit",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/richarddewit/random-quotes/issues"
+  },
+  "homepage": "https://github.com/richarddewit/random-quotes#readme",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "express": "^4.13.4"
+  },
+  "devDependencies": {
+    "eslint": "^2.9.0",
+    "eslint-config-airbnb": "^8.0.0",
+    "eslint-plugin-import": "^1.6.1",
+    "eslint-plugin-jsx-a11y": "^1.0.4",
+    "eslint-plugin-react": "^5.0.1"
+  }
+}
