@@ -1,20 +1,27 @@
 const express = require('express');
+
 const quotes = require('./quotes.json');
+const { findQuotesByKeyword, findQuotesByName } = require('./database');
 
-const apiRoutes = express.Router();
+function apiRoutes(isProduction) {
+  const router = express.Router();
 
-apiRoutes.get('/quotes', (req, res) => {
-  res.json(quotes);
-});
+  // Return all quotes
+  router.get('/quotes', (req, res) => {
+    res.json(quotes);
+  });
 
-apiRoutes.get('/quotes/search/:keyword', (req, res) => {
-  const keyword = req.params.keyword.toLowerCase();
-  res.json(quotes.filter(quote => quote.text.toLowerCase().indexOf(keyword) >= 0));
-});
+  // Filter quotes on keyword
+  router.get('/quotes/search/:keyword', (req, res) => {
+    res.json(findQuotesByKeyword(quotes, req.params.keyword));
+  });
 
-apiRoutes.get('/quotes/quotee/:name', (req, res) => {
-  const name = req.params.name.toLowerCase();
-  res.json(quotes.filter(quote => quote.name.toLowerCase().indexOf(name) >= 0));
-});
+  // Filter quotes on quotee name
+  router.get('/quotes/quotee/:name', (req, res) => {
+    res.json(findQuotesByName(quotes, req.params.name));
+  });
+
+  return router;
+}
 
 module.exports = apiRoutes;

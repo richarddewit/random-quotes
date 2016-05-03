@@ -1,10 +1,18 @@
 const express = require('express');
 const path = require('path');
 
-const routes = express.Router();
+function routes(isDevelopment) {
+  const router = express.Router();
 
-routes.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '..', 'client', 'index.html'));
-});
+  // Home route, output index.html
+  router.get('/', (req, res) => {
+    if (isDevelopment) {
+      res.sendFile(path.join(__dirname, '..', 'client', 'index.development.html'));
+    } else {
+      res.sendFile(path.join(__dirname, '..', 'client', 'index.html'));
+    }
+  });
+  return router;
+}
 
 module.exports = routes;
