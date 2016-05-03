@@ -1,15 +1,15 @@
 const express = require('express');
 const path = require('path');
 
-function routes(isDevelopment) {
+function routes(isProduction) {
   const router = express.Router();
 
   // Home route, output index.html
   router.get('/', (req, res) => {
-    if (isDevelopment) {
-      res.sendFile(path.join(__dirname, '..', 'client', 'index.development.html'));
-    } else {
+    if (isProduction) {
       res.sendFile(path.join(__dirname, '..', 'client', 'index.html'));
+    } else {
+      res.sendFile(path.join(__dirname, '..', 'client', 'index.development.html'));
     }
   });
   return router;
