@@ -21,7 +21,10 @@ class App extends Component {
         this.setState({ text, name });
       })
       .catch(err => {
-        this.setState({ text: err });
+        this.setState({
+          text: err,
+          name: 'website',
+        });
         console.error(err);
       });
   }
