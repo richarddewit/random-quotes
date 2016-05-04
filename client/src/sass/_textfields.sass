@@ -1,0 +1,29 @@
+// Reset all "text" fields default styles
+textarea,
+select,
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="email"],
+input[type="month"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="text"],
+input[type="time"],
+input[type="url"],
+input[type="week"]
+  box-sizing: border-box
+  -webkit-appearance: none
+  background-color: #FFF
+  // Fallback if rgba isn't available
+  border: 1px solid rgb(200, 200, 200)
+  border: 1px solid rgba(0, 0, 0, 0.3)
+  border-radius: 0.25em
+  color: #000
+  margin: 0
+  padding: 0 0.5em
+  text-align: left
+  height: 1.8em
+  vertical-align: top

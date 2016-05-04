@@ -4,7 +4,7 @@ import hh from 'hyperscript-helpers';
 
 import Buttons from './Buttons';
 
-const { div, h1, h2 } = hh(h);
+const { div, h1, h2, input } = hh(h);
 
 class Quote extends Component {
   constructor(props) {
@@ -12,21 +12,55 @@ class Quote extends Component {
 
     this.state = {
       name: '',
+      isEditing: false,
     };
+
+    this.onKeyUp = this.onKeyUp.bind(this);
+    this.toggleEditing = this.toggleEditing.bind(this);
   }
 
   componentWillReceiveProps(newProps) {
     this.setState({ name: newProps.name });
   }
 
+  onKeyUp(event) {
+    if (event.keyCode === 13) { // Accept on Return
+      this.toggleEditing();
+    } else if (event.keyCode === 27) { // Cancel on Escape
+      this.input.value = '';
+      this.toggleEditing();
+    }
+  }
+
+  toggleEditing() {
+    const nextState = !this.state.isEditing;
+    if (!nextState) {
+      const name = this.input ? this.input.value : null;
+      if (name)
+        this.setState({ name });
+    }
+    this.setState({ isEditing: nextState });
+
+  }
+
   render() {
     const { text } = this.props;
-    const { name } = this.state;
+    const { name, isEditing } = this.state;
     return (
       div('.quote', [
         h1([text]),
-        h2([name]),
-        h(Buttons, { text, name }),
+
+        h2([
+          isEditing ? input('.name', {
+            ref: i => this.input = i,
+            type: 'text',
+            placeholder: name,
+            autoFocus: true,
+            onKeyUp: this.onKeyUp,
+          }) : name
+        ]),
+
+        h(Buttons, { text, name, toggleEditing: this.toggleEditing }),
       ])
     );
   }

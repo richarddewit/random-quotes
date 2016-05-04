@@ -28,7 +28,7 @@ class Buttons extends Component {
       {
         icon: 'user',
         text: 'It was me!',
-        onClick: this.onMeButtonClick,
+        onClick: props.toggleEditing,
       },
     ];
   }
@@ -36,7 +36,6 @@ class Buttons extends Component {
   onNewButtonClick() {}
   onFacebookButtonClick() {}
   onTwitterButtonClick() {}
-  onMeButtonClick() {}
 
   render() {
     return (
@@ -53,6 +52,7 @@ class Buttons extends Component {
 Buttons.propTypes = {
   text: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
+  toggleEditing: PropTypes.func.isRequired,
 };
 
 export default Buttons;
