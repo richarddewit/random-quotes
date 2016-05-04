@@ -22,8 +22,8 @@ class Quote extends Component {
     const { name } = this.state;
     return (
       div('.quote', [
-        h1([`"${text}"`]),
-        h2([`- ${name}`]),
+        h1([text]),
+        h2([name]),
       ])
     );
   }

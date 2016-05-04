@@ -16,9 +16,18 @@
     font-size: 4em
     text-align: center
 
+    &:before, &:after
+      content: '"'
+      font-style: italic
+      color: #555
+
   h2
     font-size: 2em
     margin-top: 1em
     font-style: italic
     color: slategrey
     text-align: right
+
+    &:before
+      content: '- '
+      font-style: none
