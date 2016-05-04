@@ -5,7 +5,7 @@ var IS_PRODUCTION = process.env.NODE_ENV === 'production';
 var webpackDevServer = 'http://localhost:3000';
 
 module.exports = {
-  devtool: 'eval',
+  devtool: IS_PRODUCTION ? 'cheap-module-source-map' : 'eval',
   entry: (IS_PRODUCTION ? [] : [
     'webpack-dev-server/client?' + webpackDevServer,
     'webpack/hot/only-dev-server',
