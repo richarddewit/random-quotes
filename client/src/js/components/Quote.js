@@ -2,6 +2,8 @@ import { Component, PropTypes } from 'react';
 import h from 'react-hyperscript';
 import hh from 'hyperscript-helpers';
 
+import Buttons from './Buttons';
+
 const { div, h1, h2 } = hh(h);
 
 class Quote extends Component {
@@ -24,6 +26,7 @@ class Quote extends Component {
       div('.quote', [
         h1([text]),
         h2([name]),
+        h(Buttons, { text, name }),
       ])
     );
   }

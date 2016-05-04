@@ -1,0 +1,75 @@
+.buttons
+  font-size: 1.2em
+  margin-top: 2em
+  display: flex
+  justify-content: space-between
+
+  button
+    padding: 0
+    width: 22%
+
+  .icon-left
+    margin-right: 1em
+
+  .icon-right
+    margin-left: 1em
+
+
+[role="button"],
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+button
+  box-sizing: content-box
+
+// Reset `button` and button-style `input` default styles
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+button
+  background: none
+  border: 0
+  color: inherit
+  cursor: pointer
+  font: inherit
+  line-height: normal
+  overflow: visible
+  padding: 0
+  -webkit-appearance: button
+  -webkit-user-select: none
+  -moz-user-select: none
+  -ms-user-select: none
+
+input::-moz-focus-inner,
+button::-moz-focus-inner
+  border: 0
+  padding: 0
+
+// Make `a` with role=button like a button
+[role="button"]
+  color: inherit
+  cursor: default
+  display: inline-block
+  text-align: center
+  text-decoration: none
+  white-space: pre
+  -webkit-user-select: none
+  -moz-user-select: none
+  -ms-user-select: none
+
+
+// Custom button styles
+[role="button"],
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+button
+  background-color: #F0F0F0
+  // Fallback if rgba isn't available
+  border: 1px solid rgb(220, 220, 220)
+  border: 1px solid rgba(0, 0, 0, 0.1)
+  border-radius: 0.25em
+  height: 2.5em
+  line-height: 2.5em
+  margin: 0.25em
+  padding: 0 1em
