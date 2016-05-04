@@ -2,7 +2,7 @@ import { Component, PropTypes } from 'react';
 import h from 'react-hyperscript';
 import hh from 'hyperscript-helpers';
 
-const { div, span, h1, h2 } = hh(h);
+const { div, h1, h2 } = hh(h);
 
 class Quote extends Component {
   constructor(props) {
