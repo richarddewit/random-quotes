@@ -8,6 +8,7 @@ class Buttons extends Component {
   constructor(props) {
     super(props);
 
+    this.onTwitterButtonClick = this.onTwitterButtonClick.bind(this);
 
     this.buttons = [
       {
@@ -16,13 +17,8 @@ class Buttons extends Component {
         onClick: this.onNewButtonClick,
       },
       {
-        icon: 'facebook',
-        text: 'Share',
-        onClick: this.onFacebookButtonClick,
-      },
-      {
         icon: 'twitter',
-        text: 'Share',
+        text: 'Tweet',
         onClick: this.onTwitterButtonClick,
       },
       {
@@ -34,8 +30,18 @@ class Buttons extends Component {
   }
 
   onNewButtonClick() {}
-  onFacebookButtonClick() {}
-  onTwitterButtonClick() {}
+
+  onTwitterButtonClick() {
+    // Share on Twitter
+    const { text, name } = this.props;
+    const body = `"${text}"\n- ${name}\n\n${window.location}`;
+    if (body.length > 140) {
+      console.warn('Quote too big for Tweet');
+    }
+    const encodedBody = encodeURIComponent(body);
+    const url = `https://twitter.com/home?status=${encodedBody}`;
+    window.open(url, '_blank');
+  }
 
   render() {
     return (
