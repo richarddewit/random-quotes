@@ -44,7 +44,7 @@ class Quote extends Component {
   }
 
   render() {
-    const { text } = this.props;
+    const { text, newQuote } = this.props;
     const { name, isEditing } = this.state;
     return (
       div('.quote', [
@@ -60,7 +60,12 @@ class Quote extends Component {
           }) : name
         ]),
 
-        h(Buttons, { text, name, toggleEditing: this.toggleEditing }),
+        h(Buttons, {
+          text,
+          name,
+          newQuote,
+          toggleEditing: this.toggleEditing,
+        }),
       ])
     );
   }
@@ -69,6 +74,7 @@ class Quote extends Component {
 Quote.propTypes = {
   text: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
+  newQuote: PropTypes.func.isRequired,
 };
 
 export default Quote;

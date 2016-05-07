@@ -2,6 +2,7 @@ import getQuotes from './getQuotes';
 import randomNumber from './randomNumber';
 
 const getRandomQuote = () => {
+  console.info('Fetching new quote');
   return new Promise((resolve, reject) => {
     getQuotes((err, quotes) => {
       if (err) {

@@ -14,7 +14,7 @@ class Buttons extends Component {
       {
         icon: 'refresh',
         text: 'New',
-        onClick: this.onNewButtonClick,
+        onClick: props.newQuote,
       },
       {
         icon: 'twitter',
@@ -28,8 +28,6 @@ class Buttons extends Component {
       },
     ];
   }
-
-  onNewButtonClick() {}
 
   onTwitterButtonClick() {
     // Share on Twitter
@@ -59,6 +57,7 @@ Buttons.propTypes = {
   text: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   toggleEditing: PropTypes.func.isRequired,
+  newQuote: PropTypes.func.isRequired,
 };
 
 export default Buttons;
