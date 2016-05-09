@@ -3,6 +3,8 @@ Display random quotes on demand!
 
 ## Installation
 
+**This requires Node v6.0.0 or higher due to the use of ES6 in the backend scripts!**
+
 ``` plain
 git clone https://github.com/richarddewit/random-quotes.git
 cd random-quotes
