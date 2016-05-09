@@ -1,9 +1,13 @@
 import { Component } from 'react';
 import h from 'react-hyperscript';
+import hh from 'hyperscript-helpers';
 
 import Quote from './components/Quote';
+import Footer from './components/Footer';
 import getRandomQuote from './utils/getRandomQuote';
 import throttle from './utils/throttle';
+
+const { div } = hh(h);
 
 class App extends Component {
   constructor(props) {
@@ -37,11 +41,14 @@ class App extends Component {
 
   render() {
     const { text, name } = this.state;
-    return h(Quote, {
-      text,
-      name,
-      newQuote: this.newQuote,
-    });
+    return div('.app', [
+      h(Quote, {
+        text,
+        name,
+        newQuote: this.newQuote,
+      }),
+      h(Footer),
+    ]);
   }
 }
 
